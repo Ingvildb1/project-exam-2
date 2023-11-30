@@ -1,6 +1,7 @@
 // Logout.js
 import React from 'react';
 import { useHistory } from 'react-router-dom'; 
+import '../../App.css'
 
 function Logout({ onLogout }) {
   const history = useHistory(); // Create an instance of useHistory
@@ -19,7 +20,7 @@ function Logout({ onLogout }) {
   };
 
   return (
-    <button onClick={handleLogout}>Log Out</button>
+    <button className='logoutbtn' onClick={handleLogout}>Log Out</button>
   );
 }
 

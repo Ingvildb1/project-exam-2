@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import VenueCard from '../VenueCard';
 import './../../App.css';
-import Login from './Login'; // Import the Login component
+import '../styles/styles.scss'
+import Login from './Login'; 
 
 const url = 'https://api.noroff.dev/api/v1/holidaze/venues';
 
 function Home() {
   const [venues, setVenues] = useState([]);
   const [searchText, setSearchText] = useState('');
-  const [user, setUser] = useState(null); // User state to track authentication
+  const [user, setUser] = useState(null); 
+  const [currentPage, setCurrentPage] = useState(1); // New state for current page
+  const itemsPerPage = 10; // Number of items per page
 
   useEffect(() => {
     const fetchVenues = async () => {
@@ -31,6 +34,17 @@ function Home() {
     venue.name.toLowerCase().includes(searchText.toLowerCase())
   );
 
+  // Calculate the total number of pages
+  const pageCount = Math.ceil(filteredVenues.length / itemsPerPage);
+
+  // Get the venues for the current page
+  const indexOfLastVenue = currentPage * itemsPerPage;
+  const indexOfFirstVenue = indexOfLastVenue - itemsPerPage;
+  const currentVenues = filteredVenues.slice(indexOfFirstVenue, indexOfLastVenue);
+
+  // Function to change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   const handleInputChange = (e) => {
     setSearchText(e.target.value);
   };
@@ -44,7 +58,7 @@ function Home() {
     <div>
       {user ? ( // Check if the user is authenticated
         <>
-          <h2>Welcome, {user.name}!</h2>
+         <h3>Find your next adventure</h3>
           <div className='search'>
             <input
               placeholder='Search for venues'
@@ -52,22 +66,27 @@ function Home() {
               onChange={handleInputChange}
             />
           </div>
-          <h3>Popular venues</h3>
+          
           <div className='container'>
-            {/* Render Venue Cards */}
-            {filteredVenues.length > 0 ? (
-              filteredVenues.slice(0, 30).map((venue) => (
+            {/* Render Venue Cards for current page */}
+            {currentVenues.length > 0 ? (
+              currentVenues.map((venue) => (
                 <VenueCard key={venue.id} venue={venue} />
               ))
             ) : (
               <div className='empty'>
-                {searchText.trim() !== '' ? (
-                  <h2>No venues found</h2>
-                ) : (
-                  <h2>Loading...</h2>
-                )}
+                {searchText.trim() !== '' ? <h2>No venues found</h2> : <h2>Loading...</h2>}
               </div>
             )}
+          </div>
+
+          {/* Pagination Controls */}
+          <div className="pagination">
+            {Array.from({ length: pageCount }, (_, index) => (
+              <button key={index} onClick={() => paginate(index + 1)}>
+                {index + 1}
+              </button>
+            ))}
           </div>
         </>
       ) : (

@@ -4,6 +4,9 @@ import Create from "../edit/create";
 import Update from "../edit/Update";
 import Bookings from '../edit/Bookings';
 import Specific from './Specific'; 
+import '../styles/styles.scss'
+import '../../App.css'
+
 
 
 const Profile = () => {
@@ -278,11 +281,22 @@ const Profile = () => {
   
 
   return (
-    <div className="my-24">
+    <div className="my-24 profile-container">
       <div className="mx-auto mt-8 p-4 bg-white rounded shadow-xl w-[90%] max-w-[600px]">
-        <h1 className="text-2xl font-bold mb-4">Profile</h1>
+        <h1 className="text-2xl primary-color font-bold mb-4">My Profile</h1>
         <div className="grid sm:flex sm:justify-between sm:items-center">
-          <div>
+          <div className="topcontainer-profile">
+          <div className="avatar">
+            {userInfo.avatar ? (
+              <img
+                src={userInfo.avatar}
+                alt="Current Avatar"
+                className="w-24 h-24 object-cover rounded border-2 "
+              />
+            ) : (
+              <span className="text-gray-500">No avatar selected</span>
+            )}
+          </div>
             <div className="mb-2">
               <label className="block font-medium">Name:</label>
               <p className="text-lg font-semibold">
@@ -294,21 +308,11 @@ const Profile = () => {
               <p className="text-lg font-semibold">{userInfo?.email}</p>
             </div>
           </div>
-          <div className="">
-            {userInfo.avatar ? (
-              <img
-                src={userInfo.avatar}
-                alt="Current Avatar"
-                className="w-24 h-24 object-cover rounded border-2 "
-              />
-            ) : (
-              <span className="text-gray-500">No avatar selected</span>
-            )}
-          </div>
+          
         </div>
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block font-medium mb-2">Avatar URL:</label>
+          <div className="mb-4 ">
+            <label className="block font-medium mb-2 avatar">Avatar URL:</label>
             <input
               required
               type="text"
@@ -353,20 +357,19 @@ const Profile = () => {
                       />
                     )}
                     {/* Display booking details */}
-                    <div className="w-full">
-                      <p className="text-gray-600">
+                    <div className="w-full bookingDetails">
+                    <img src={booking.media !== 'N/A' ? booking.media : 'https://via.placeholder.com/400'} alt={booking.description}  className="w-24 h-24 object-cover rounded border-2 mr-4"/>
+                      <p className="text-gray-300">
                         Venue: {booking.id || "Venue Name Not Available"}
                       </p>
-                      <p className="text-gray-600">
+                      <p className="text-gray-300">
                         Date From: {booking.details ? new Date(booking.details.dateFrom).toLocaleDateString() : "N/A"}
                       </p>
-                      <p className="text-gray-600">
+                      <p className="text-gray-300">
                         Date To: {booking.details ? new Date(booking.details.dateTo).toLocaleDateString() : "N/A"}
                       </p>
                       <p className="text-gray-600 mb-4">Guests: {booking.details ? booking.details.guests : "N/A"}</p>
-                      <Link to={`/venues/${booking.id}`} className={`bg-blue-500 text-white py-2 px-4 rounded mt-2 ${!booking.id ? "hidden" : ""}`}>
-      View Venue
-    </Link>
+                      
     
                     </div>
                   </li>
@@ -402,16 +405,17 @@ const Profile = () => {
         </div>
       </div>
       <div className="max-w-[600px] mx-auto mt-8 p-4 bg-white rounded shadow-xl w-[90%]">
-        <div className="mt-8">
-        <h2 className="text-lg font-semibold mb-2">Venues Created</h2>
+      <div className="mt-8">
+        <h2 className="text-sm font-semibold mb-2">Venues Created</h2>
         <div className="flex justify-center items-center">
           {venues.length > 0 ? (
             <ul className="list-disc list-inside">
               {venues.map((venue) => (
                 <li key={venue.id} className="mb-4">
+                  <div className="w-full venueDetails">
                   <p className="text-gray-600">Name: {venue.name}</p>
                   <p>Description: {venue.description}</p>
-                  <img src={venue.media !== 'N/A' ? venue.media : 'https://via.placeholder.com/400'} alt={venue.description} />
+                  <img src={venue.media !== 'N/A' ? venue.media : 'https://via.placeholder.com/400'} alt={venue.description}  className="w-24 h-24 object-cover rounded border-2 mr-4"/>
                   <p>Price: {venue.price},-</p>
                   <p>Max Guests: {venue.maxGuests}</p>
                   <p>Rating: {venue.rating}</p>
@@ -428,7 +432,7 @@ const Profile = () => {
                   <p>Continent: {venue.location ? venue.location.continent : 'Continent not available'}</p>
                   <p>Lat: {venue.location ? venue.location.lat : 'Lat not available'}</p>
                   <p>Lng: {venue.location ? venue.location.lng : 'Lng not available'}</p>
-
+                  </div>
                   <button
                     onClick={() => startEditingVenue(venue.id)}
                     className="bg-blue-500 text-white py-2 px-4 rounded mt-2"

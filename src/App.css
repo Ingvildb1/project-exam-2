@@ -18,26 +18,44 @@
 
 body {
   font-family: var(--font-roboto);
-  background-color: #f4f1f1;
+  background-color: #ffffff;
 }
 
-/* App Container Styles */
-
-.App {
-  padding: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
 
 /* Nav Styles */
 
-.nav {
+.navContainer {
+  border-bottom: 2px solid #FF9D9D;
+}
+
+nav {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #FF9D9D;
-  padding: 10px 0;
+  align-items: center;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.topNav {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+}
+
+.topNav ul {
+  padding: 0;
+  margin: 0;
+  justify-content: right;
+}
+
+.topNav a {
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+
+nav h1 {
+  font-size: 2rem;
+  color: #333;
 }
 
 h1 {
@@ -45,6 +63,8 @@ h1 {
   letter-spacing: 1px;
   color: #FF9D9D;
   margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 ul {
@@ -58,14 +78,27 @@ ul {
 
 li {
   margin: 0 20px;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 li a {
   text-decoration: none;
-  color: #da8c79;
+  color: #FF9D9D;
   font-weight: bold;
   transition: color 0.3s;
+  text-transform: uppercase;
+}
+
+.logoutbtn {
+  background-color: #d6d6d692;
+  font-size: 0.6rem;
+  padding: 10px;
+margin-left: 94%;
+margin-top: 10px;
+}
+
+.logoutbtn:hover{
+  background-color: #cccc;
 }
 
 /* Header Styles */
@@ -86,8 +119,10 @@ h3 {
   display: flex;
   justify-content: center;
   font-weight: 400;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 40px;
   padding-top: 30px;
+  text-transform: uppercase;
 }
 
 /* Search Styles */
@@ -119,22 +154,25 @@ h3 {
 /* Venue Styles */
 
 .container {
-  width: 100%;
-  margin-top: 3rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .venue {
   width: 360px;
-  height: 360px;
-  margin: 1rem;
+  height:fit-content;
+  min-height: 450px;
+  max-height: 450px;
+  margin: 10px;
   position: relative;
   border-radius: 12px;
   border: none;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
   box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.021);
+  justify-content: center;
+
 }
 
 
@@ -144,11 +182,7 @@ h3 {
   /*transform: scale(1.05, 1.05);*/
 }
 
-
-
-
-
-.venue div:nth-of-type(3) {
+/*.venue div:nth-of-type(3) {
   z-index: 2;
   background-color: #98999a7b;
   padding: 16px 24px 24px 24px;
@@ -156,9 +190,9 @@ h3 {
   bottom: 0;
   right: 0;
   left: 0;
-}
+}*/
 
-.venue div:nth-of-type(3) span {
+/*.venue div:nth-of-type(3) span {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   font-size: 10px;
@@ -173,18 +207,68 @@ h3 {
   font-family: "Roboto Slab", serif;
   color: #151515;
   font-size: 12px;
-}
+}*/
 
 .venue img {
   width: 300px;
-  height: 260px ;
+  min-height: 240px;
+  max-height: 240px ;
+  display: block;
 }
 
-button {
+.venue h3 {
+  font-size: 1.25rem;
+  color: #333;
+  padding: 0.5rem;
+}
+
+.venue p {
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  color: #666;
+  display: flex;
+  justify-content: center;
+}
+
+.empty h2 {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
+}
+
+.venue button {
   background-color: #F25C5C;
   color: #ffffff;
   padding: 10px 20px;
  text-decoration: none;
+ margin-top:auto; 
+ margin-left: 30%;
+}
+
+.venue .rating .stars {
+  color: gold; 
+  font-size: 1rem; 
+}
+
+.venue .rating .no-rating {
+  color: #000000; 
+  font-size: 12px; 
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination button{
+padding: 10px;
+border: 1px #0000007a solid;
+margin: 3px;
+background-color: #f7f7f79d;
+}
+
+.pagination button:hover {
+  color: #F25C5C;
 }
 
 
@@ -197,9 +281,14 @@ button {
   padding: 20px;
 }
 
+.specific-container h2 {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+
 /* Top section with venue image and info */
 .venueinfotop {
-  display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
@@ -211,18 +300,30 @@ button {
 }
 
 .venue-info {
-  flex-grow: 1;
-  margin-left: 20px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  flex-wrap: nowrap; 
+  gap: 9rem;
+
+
 }
 
-.venue-info h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
+.venue-info h3 {
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 .venue-info p {
   font-size: 16px;
-  margin: 5px 0;
+  text-transform: uppercase;
+}
+
+.venue-rating {
+  display: flex;
+  justify-content: center;
+  color: gold;
+  font-size: 25px;
 }
 
 /* Location and Details sections */
@@ -235,12 +336,15 @@ button {
 .details h2 {
   font-size: 20px;
   margin-bottom: 10px;
+  text-transform: uppercase
 }
 
 .location p,
 .details p {
-  font-size: 16px;
+  font-size: 13px;
   margin: 5px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Booking section */
@@ -248,32 +352,47 @@ button {
   padding: 20px;
   background-color: #f5f5f5;
   border-radius: 5px;
+  display: block;
+
 }
 
 .booking p {
-  font-size: 16px;
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.bookingDetails {
+  font-size: 12px;
+}
+
+.bookingDetails p{
+  padding: 5px;
 }
 
 .date-picker-container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+
 }
 
-.date-picker-container .mr-2,
+/*.date-picker-container .mr-2,
 .date-picker-container .ml-2 {
   flex: 1;
-}
+} */
 
 .date-picker-container p {
   font-size: 14px;
   margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
 }
 
 /* Guests input */
 .guests-input {
   display: flex;
+  justify-content: center;
   align-items: center;
   margin-bottom: 10px;
 }
@@ -298,20 +417,116 @@ button {
 }
 
 .book-now-button {
-  background-color: #007bff;
+  background-color: #F25C5C;
   color: #fff;
-  padding: 10px 20px;
+  padding: 10px 40px;
   font-size: 18px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-left: 40%;
 }
 
 .book-now-button:disabled {
-  background-color: #ccc;
+  background-color: #FF9D9D;
   cursor: not-allowed;
+  display: flex;
+}
+
+.venueDetails {
+  font-size: 12px;
+  padding: 10px;
+  letter-spacing: 1px;
+}
+
+.venueDetails p{
+  margin: 2px;
+}
+
+.updateBtn {
+  font-size: 12px;
+  margin: 10px;
+ 
 }
 
 
+/* Profile */
 
+.profile-container {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-container h1 {
+  display: flex;
+  justify-content: center;
+  color: #0a0a0a;
+  font-size: 16px;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+
+}
+
+.avatar img{
+  border: 1px #4e4e4e67 solid;
+  border-radius: 100%;
+  padding: 5px;
+  padding-left: 60px;
+  padding-right: 60px;
+
+}
+
+.topcontainer-profile {
+  width: 800px;
+}
+
+
+/* Login*/
+
+.loginform {
+  width: 600px;
+  display: block;
+  margin-left: 30%;
+}
+
+.loginform h2, input, button {
+  display: flex;
+  justify-content: center;
+}
+
+.loginform label {
+  font-size: 13px;
+}
+
+.loginform button {
+  padding: 10px 90px;
+  margin-left: 30%;
+  color: #ffffff;
+  background-color: #FF9D9D;
+}
+
+.loginform button:hover {
+  background-color: #F25C5C;
+}
+
+/* Register*/
+
+.register-container {
+  width: 600px;
+  display: block;
+  margin-left: 35%;
+}
+
+.register-container button {
+  padding: 10px 90px;
+  color: #ffffff;
+  background-color: #FF9D9D;
+}
+
+.register-container button:hover {
+  background-color: #F25C5C;
+}
 

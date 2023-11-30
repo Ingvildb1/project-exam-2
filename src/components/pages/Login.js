@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function Login({ onLogin }) {
   const [email, setEmail] = useState('');
@@ -65,7 +66,7 @@ function Login({ onLogin }) {
   };
 
   return (
-    <div>
+    <div className='loginform' >
       <h2>Login</h2>
       <div>
         <label>Email:</label>
@@ -76,7 +77,11 @@ function Login({ onLogin }) {
         <input type="password" value={password} onChange={handlePasswordChange} />
       </div>
       <button onClick={handleLogin}>Log In</button>
+      <div className="register-link">
+        <p>Don't have an account? <Link to="/register">Register here</Link></p> 
+      </div>
     </div>
+
   );
 }
 

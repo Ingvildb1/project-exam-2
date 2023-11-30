@@ -208,8 +208,8 @@ const Update = ({ accessToken, id, onUpdated }) => {
       <input type="number" name="lat" value={venueDetails.location.lat} onChange={handleChange} placeholder="Latitude" />
       <input type="number" name="lng" value={venueDetails.location.lng} onChange={handleChange} placeholder="Longitude" />
 
-      <button type="submit">Update Venue</button>
-      <button type="button" onClick={handleDelete} className="bg-red-500 text-white py-2 px-4 rounded mt-2">
+      <button type="submit" className='updateBtn'>Update Venue</button>
+      <button type="button" onClick={handleDelete} className="bg-red-300 text-white px-4 mt-2 updateBtn">
         Delete Venue
       </button>
       </form>

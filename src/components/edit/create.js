@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/styles.scss'
+import './../../App.css';
 
 
 const Create = ({ token, onCreationSuccess }) => {
@@ -142,14 +144,32 @@ const Create = ({ token, onCreationSuccess }) => {
   
 
   return (
-    <div>
+    <div className="create-venue">
       <h1>Create New Venue</h1>
       <h3>Venue Details</h3>
       <form onSubmit={handleSubmit}>
-      <label>Venue Name:</label>
-      <input type="text" name="name" value={venueDetails.name} onChange={handleChange} placeholder="Venue Name" required />
-      <label>Venue Description:</label>
-      <input type="text" name="description" value={venueDetails.description} onChange={handleChange} placeholder="Venue Description" required />
+      <div className="form-group">
+          <label>Venue Name:</label>
+          <input
+            type="text"
+            name="name"
+            value={venueDetails.name}
+            onChange={handleChange}
+            placeholder="Venue Name"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Venue Description:</label>
+          <input
+            type="text"
+            name="description"
+            value={venueDetails.description}
+            onChange={handleChange}
+            placeholder="Venue Description"
+            required
+          />
+        
       <h3>Upload images</h3>
       <input 
         type="text" 
@@ -164,7 +184,9 @@ const Create = ({ token, onCreationSuccess }) => {
       <input type="number" name="maxGuests" value={venueDetails.maxGuests} onChange={handleChange} placeholder="Max Guests" required />
       <label>Venue Rating:</label>
       <input type="number" name="rating" value={venueDetails.rating} onChange={handleChange} placeholder="Venue Rating" />
+      </div>
 
+      <div className="form-group">
       <h3>Meta</h3>
       <label>
         Wifi:
@@ -182,7 +204,9 @@ const Create = ({ token, onCreationSuccess }) => {
       Pets:
         <input type="checkbox" name="pets" checked={venueDetails.meta.pets} onChange={handleCheckboxChange} />
       </label>
+      </div>
 
+      <div className="form-group">
       <h3>Venue Location</h3>
       {/* Inputs for address, city, zip, country, continent */}
       <input type="text" name="address" value={venueDetails.location.address} onChange={handleChange} placeholder="Address" />
@@ -192,11 +216,11 @@ const Create = ({ token, onCreationSuccess }) => {
       <input type="text" name="continent" value={venueDetails.location.continent} onChange={handleChange} placeholder="Continent" />
       <input type="number" name="lat" value={venueDetails.location.lat} onChange={handleChange} placeholder="Latitude" />
       <input type="number" name="lng" value={venueDetails.location.lng} onChange={handleChange} placeholder="Longitude" />
-      
- 
+      </div>
 
-
-      <button type="submit">Create Venue</button>
+      <div className="form-group">
+          <button type="submit">Create Venue</button>
+        </div>
       </form>
     </div>
   );

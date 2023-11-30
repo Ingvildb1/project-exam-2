@@ -15,6 +15,14 @@ const Specific = ({ onBookingSuccess }) => {
   const [guests, setGuests] = useState(1);
   const [bookingSuccess, setBookingSuccess] = useState(false);
 
+  // Function to render star ratings
+  const renderStars = (rating) => {
+    if (rating > 0) {
+      return <span style={{ color: 'gold' }}>{'★'.repeat(rating)}</span>;
+    } else {
+      return <span style={{ color: 'black', fontSize: '13px' }}>No ratings yet</span>;
+    }
+  };
   const userLoggedIn = Boolean(localStorage.getItem('accessToken'));
 
   const fetchVenue = async () => {
@@ -170,34 +178,16 @@ const Specific = ({ onBookingSuccess }) => {
               <img src={venue.media !== 'N/A' ? venue.media : 'https://via.placeholder.com/400'} alt={venue.description} />
             </div>
             <div className="venue-info">
-              <h2>{venue.name}</h2>
+              <h3>{venue.name}</h3>
               <p>Price: {venue.price},-</p>
             </div>
+            {/* Display the star rating */}
+          <div className="venue-rating">
+            <p>{renderStars(venue.rating)}</p>
+          </div>
           </div>
 
-          <div className='detailsContainer'>
-            <div className='location'>
-              <h2>Location</h2>
-              <p>Address: {venue.location ? venue.location.address : 'Address not available'}</p>
-              <p>City: {venue.location ? venue.location.city : 'City not available'}</p>
-              <p>Zip: {venue.location ? venue.location.zip : 'Zip not available'}</p>
-              <p>Country: {venue.location ? venue.location.country : 'Country not available'}</p>
-              <p>Continent: {venue.location ? venue.location.continent : 'Continent not available'}</p>
-            </div>
-            <div className='details'>
-              <h2>Details</h2>
-              <p>Created: {venue.created}</p>
-              <p>Updated: {venue.updated}</p>
-              <p>Max Guests: {venue.maxGuests}</p>
-              <p>WiFi: {venue.meta ? (venue.meta.wifi ? 'Yes' : 'No') : 'WiFi not available'}</p>
-              <p>Parking: {venue.meta ? (venue.meta.parking ? 'Yes' : 'No') : 'Parking not available'}</p>
-              <p>Breakfast: {venue.meta ? (venue.meta.breakfast ? 'Yes' : 'No') : 'Breakfast not available'}</p>
-              <p>Pets: {venue.meta ? (venue.meta.pets ? 'Allowed' : 'Not allowed') : 'Pets not specified'}</p>
-            </div>
-          </div>
-        </div>
-      ) : null}
-      <div className='booking'>
+          <div className='booking'>
         <p className="text-gray-600">Select Dates:</p>
         <div className="date-picker-container">
           <div>
@@ -291,6 +281,30 @@ const Specific = ({ onBookingSuccess }) => {
           Book Now
         </button>
       </div>
+
+          <div className='detailsContainer'>
+            <div className='location'>
+              <h2>Location</h2>
+              <p>Address: {venue.location ? venue.location.address : 'Address not available'}</p>
+              <p>City: {venue.location ? venue.location.city : 'City not available'}</p>
+              <p>Zip: {venue.location ? venue.location.zip : 'Zip not available'}</p>
+              <p>Country: {venue.location ? venue.location.country : 'Country not available'}</p>
+              <p>Continent: {venue.location ? venue.location.continent : 'Continent not available'}</p>
+            </div>
+            <div className='details'>
+              <h2>Details</h2>
+              <p>Created: {venue.created}</p>
+              <p>Updated: {venue.updated}</p>
+              <p>Max Guests: {venue.maxGuests}</p>
+              <p>WiFi: {venue.meta ? (venue.meta.wifi ? 'Yes' : 'No') : 'WiFi not available'}</p>
+              <p>Parking: {venue.meta ? (venue.meta.parking ? 'Yes' : 'No') : 'Parking not available'}</p>
+              <p>Breakfast: {venue.meta ? (venue.meta.breakfast ? 'Yes' : 'No') : 'Breakfast not available'}</p>
+              <p>Pets: {venue.meta ? (venue.meta.pets ? 'Allowed' : 'Not allowed') : 'Pets not specified'}</p>
+            </div>
+          </div>
+        </div>
+      ) : null}
+      
     </div>
   );
 };

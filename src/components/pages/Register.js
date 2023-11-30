@@ -93,7 +93,7 @@ const RegisterForm = () => {
 
   return (
     <>
-      <div className="flex items-center justify-center min-h-[90vh] py-24">
+      <div className="flex items-center justify-center min-h-[90vh] py-24 register-container">
         <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow min-w-[80%] sm:min-w-[450px]">
           <h2 className="text-2xl font-bold mb-4 text-gray-900">Register</h2>
           <div className="mb-4">
