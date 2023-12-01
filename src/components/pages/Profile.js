@@ -48,123 +48,6 @@ const Profile = () => {
   
 
   // Function to fetch venues associated with the profile
-  const fetchVenuesByProfileName = useCallback(async (profileName) => {
-    try {
-      const accessToken = localStorage.getItem("accessToken");
-      if (!accessToken) {
-        console.error("Access token is missing.");
-        return;
-      }
-      const response = await fetch(
-        `https://api.noroff.dev/api/v1/holidaze/profiles/${profileName}/venues`,
-        { headers: { Authorization: `Bearer ${accessToken}` } }
-      );
-      if (response.ok) {
-        const venuesData = await response.json();
-        setVenues(venuesData);
-      } else {
-        console.error("Failed to fetch venues by profile name.");
-      }
-    } catch (error) {
-      console.error("Error fetching venues by profile name:", error);
-    }
-  }, []);
-  
-  useEffect(() => {
-    const name = localStorage.getItem("name");
-    if (name) {
-      fetchBookingsByProfileName(name);
-      fetchVenuesByProfileName(name);
-    } else {
-      console.error("'name' is missing from localStorage.");
-    }
-  }, [fetchBookingsByProfileName, fetchVenuesByProfileName]);
-
-  const handleAvatarChange = (e) => {
-    const imageUrl = e.target.value;
-    setAvatar(imageUrl);
-  };
-
-  const handleVenueManagerChange = (e) => {
-    setIsVenueManager(e.target.checked);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const name = localStorage.getItem("name");
-      const token = localStorage.getItem("accessToken");
-      console.log("Retrieved from localStorage - Name:", name, "accessToken:", token);
-
-      if (!name || !token) {
-        console.error("Name or token is missing.");
-        return;
-      }
-
-      // Update venueManager status
-      const venueManagerResponse = await fetch(`https://api.noroff.dev/api/v1/holidaze/profiles/${name}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify({ venueManager: isVenueManager }),
-      });
-
-      if (!venueManagerResponse.ok) {
-        throw new Error("Failed to update venue manager status");
-      }
-
-      // Update avatar
-      const avatarResponse = await fetch(`https://api.noroff.dev/api/v1/holidaze/profiles/${name}/media`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify({ avatar: avatar }),
-      });
-
-      if (!avatarResponse.ok) {
-        const errorDetails = await avatarResponse.json();
-        console.error("Failed to update avatar:", errorDetails);
-        throw new Error("Failed to update avatar");
-      }
-
-      // Update local state
-      const updatedUserInfo = await avatarResponse.json();
-  setUserInfo(updatedUserInfo);
-  updateLocalStorageUserData(updatedUserInfo);
-
-
-    } catch (error) {
-      console.error("Error updating profile:", error);
-    }
-  };
-
-  const fetchBookingDetails = async (bookingId, accessToken) => {
-    try {
-      const response = await fetch(
-        `https://api.noroff.dev/api/v1/holidaze/bookings/${bookingId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
-      );
-
-      if (response.ok) {
-        return await response.json();
-      } else {
-        console.error("Failed to fetch booking details for ID:", bookingId);
-        return null;
-      }
-    } catch (error) {
-      console.error("Error fetching booking details:", error);
-      return null;
-    }
-  };
-
   const fetchBookingsByProfileName = useCallback(async (profileName) => {
     try {
       const accessToken = localStorage.getItem("accessToken");
@@ -200,8 +83,112 @@ const Profile = () => {
     }
   }, []);
 
+  const fetchVenuesByProfileName = useCallback(async (profileName) => {
+    try {
+      const accessToken = localStorage.getItem("accessToken");
+      if (!accessToken) {
+        console.error("Access token is missing.");
+        return;
+      }
+      const response = await fetch(
+        `https://api.noroff.dev/api/v1/holidaze/profiles/${profileName}/venues`,
+        { headers: { Authorization: `Bearer ${accessToken}` } }
+      );
+      if (response.ok) {
+        const venuesData = await response.json();
+        setVenues(venuesData);
+      } else {
+        console.error("Failed to fetch venues by profile name.");
+      }
+    } catch (error) {
+      console.error("Error fetching venues by profile name:", error);
+    }
+  }, []);
   
-
+  const handleAvatarChange = (e) => {
+    const imageUrl = e.target.value;
+    setAvatar(imageUrl);
+  };
+  
+  const handleVenueManagerChange = (e) => {
+    setIsVenueManager(e.target.checked);
+  };
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const name = localStorage.getItem("name");
+      const token = localStorage.getItem("accessToken");
+      console.log("Retrieved from localStorage - Name:", name, "accessToken:", token);
+  
+      if (!name || !token) {
+        console.error("Name or token is missing.");
+        return;
+      }
+  
+      // Update venueManager status
+      const venueManagerResponse = await fetch(`https://api.noroff.dev/api/v1/holidaze/profiles/${name}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ venueManager: isVenueManager }),
+      });
+  
+      if (!venueManagerResponse.ok) {
+        throw new Error("Failed to update venue manager status");
+      }
+  
+      // Update avatar
+      const avatarResponse = await fetch(`https://api.noroff.dev/api/v1/holidaze/profiles/${name}/media`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ avatar: avatar }),
+      });
+  
+      if (!avatarResponse.ok) {
+        const errorDetails = await avatarResponse.json();
+        console.error("Failed to update avatar:", errorDetails);
+        throw new Error("Failed to update avatar");
+      }
+  
+      // Update local state
+      const updatedUserInfo = await avatarResponse.json();
+      setUserInfo(updatedUserInfo);
+      updateLocalStorageUserData(updatedUserInfo);
+  
+    } catch (error) {
+      console.error("Error updating profile:", error);
+    }
+  };
+  
+  const fetchBookingDetails = async (bookingId, accessToken) => {
+    try {
+      const response = await fetch(
+        `https://api.noroff.dev/api/v1/holidaze/bookings/${bookingId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+  
+      if (response.ok) {
+        return await response.json();
+      } else {
+        console.error("Failed to fetch booking details for ID:", bookingId);
+        return null;
+      }
+    } catch (error) {
+      console.error("Error fetching booking details:", error);
+      return null;
+    }
+  };
+  
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem('userData'));
     if (userData) {
@@ -214,29 +201,30 @@ const Profile = () => {
       console.error("User data is missing from localStorage.");
     }
   }, [fetchBookingsByProfileName, fetchVenuesByProfileName]);
-
+  
   const updateLocalStorageUserData = (updatedUserData) => {
     localStorage.setItem('userData', JSON.stringify(updatedUserData));
   };
-
+  
   const startEditingVenue = (venueId) => {
     setEditingVenueId(venueId);
   };
-
+  
   const indexOfLastBooking = currentPage * bookingsPerPage;
   const indexOfFirstBooking = indexOfLastBooking - bookingsPerPage;
   const currentBookings = bookings.slice(indexOfFirstBooking, indexOfLastBooking);
-
+  
   const nextPage = () => {
     setCurrentPage(currentPage + 1);
   };
-
+  
   const previousPage = () => {
     setCurrentPage(currentPage - 1);
   };
-
+  
   const isFirstPage = currentPage === 1;
   const isLastPage = indexOfLastBooking >= bookings.length || bookings.length === 0;
+  
 
 
  /* const handleVenueClick = async (id, e) => {
