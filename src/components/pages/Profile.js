@@ -51,21 +51,14 @@ const Profile = () => {
   const fetchVenuesByProfileName = useCallback(async (profileName) => {
     try {
       const accessToken = localStorage.getItem("accessToken");
-
       if (!accessToken) {
         console.error("Access token is missing.");
         return;
       }
-
       const response = await fetch(
         `https://api.noroff.dev/api/v1/holidaze/profiles/${profileName}/venues`,
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
+        { headers: { Authorization: `Bearer ${accessToken}` } }
       );
-
       if (response.ok) {
         const venuesData = await response.json();
         setVenues(venuesData);
@@ -76,16 +69,16 @@ const Profile = () => {
       console.error("Error fetching venues by profile name:", error);
     }
   }, []);
-
+  
   useEffect(() => {
     const name = localStorage.getItem("name");
     if (name) {
       fetchBookingsByProfileName(name);
-      fetchVenuesByProfileName(name); // Fetch venues when the component mounts
+      fetchVenuesByProfileName(name);
     } else {
       console.error("'name' is missing from localStorage.");
-  } }, []);
-
+    }
+  }, [fetchBookingsByProfileName, fetchVenuesByProfileName]);
 
   const handleAvatarChange = (e) => {
     const imageUrl = e.target.value;
