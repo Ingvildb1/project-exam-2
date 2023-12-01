@@ -166,7 +166,7 @@ const Specific = ({ onBookingSuccess }) => {
   useEffect(() => {
     fetchBookingDates(); // Fetch booking dates first
     fetchVenue(); // Then fetch venue data
-  }, [id]);
+  }, [id, fetchVenue]);
 
   return (
     <div className="specific-container">
@@ -280,7 +280,7 @@ const Specific = ({ onBookingSuccess }) => {
         >
           Book Now
         </button>
-        
+
         {bookingSuccess && (
         <p className="success-message">Your booking has been successfully made!</p>
       )}

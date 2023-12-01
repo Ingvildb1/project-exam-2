@@ -30,21 +30,6 @@ const Profile = () => {
       setRefreshBookings(true); 
     };
   
-
-  // Ensure the correct function is called to fetch venues
-  useEffect(() => {
-    const name = localStorage.getItem("name");
-    if (name) {
-      fetchBookingsByProfileName(name);
-      setRefreshBookings(false); 
-      fetchVenuesByProfileName(name);
-    } else {
-      console.error("'name' is missing from localStorage.");
-    }
-  }, [refreshBookings, fetchBookingsByProfileName, fetchVenuesByProfileName]);
-
-  const token = localStorage.getItem('accessToken');
-  
   
 
   // Function to fetch venues associated with the profile
@@ -209,6 +194,18 @@ const Profile = () => {
   const startEditingVenue = (venueId) => {
     setEditingVenueId(venueId);
   };
+
+  // Ensure the correct function is called to fetch venues
+  useEffect(() => {
+    const name = localStorage.getItem("name");
+    if (name) {
+      fetchBookingsByProfileName(name);
+      setRefreshBookings(false); 
+      fetchVenuesByProfileName(name);
+    } else {
+      console.error("'name' is missing from localStorage.");
+    }
+  }, [refreshBookings, fetchBookingsByProfileName, fetchVenuesByProfileName]);
   
   const indexOfLastBooking = currentPage * bookingsPerPage;
   const indexOfFirstBooking = indexOfLastBooking - bookingsPerPage;
