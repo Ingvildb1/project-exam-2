@@ -74,7 +74,7 @@ const RegisterForm = () => {
         history.push('/login');
       } else {
         const responseData = await response.json();
-        const errorMessage = responseData?.errors?.map((error) => error.message).join(', ') || 'Registration failed. Please check your credentials and try again.';
+        const errorMessage = responseData?.errors?.map((error) => error.message).join(', ') || 'Thank you for your registration! You can now go to the log in page to log in.';
         setRegistrationError(errorMessage);
       }
     } catch (error) {

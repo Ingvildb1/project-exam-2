@@ -340,7 +340,7 @@ const Profile = () => {
         </form>
        
       </div>
-      <div className="max-w-[600px] mx-auto mt-8 p-4 bg-white rounded shadow-xl w-[90%]">
+      <div className="max-w-[900px] mx-auto mt-8 p-4 bg-white rounded shadow-xl w-[90%]">
         <div className="mt-8">
           <h2 className="text-lg font-semibold mb-2">Upcoming Bookings</h2>
           <div className="flex justify-center items-center">

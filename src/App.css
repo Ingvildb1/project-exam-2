@@ -445,7 +445,10 @@ background-color: #f7f7f79d;
 
 .updateBtn {
   font-size: 12px;
+  padding: 10px 20px;
   margin: 10px;
+  background-color: #FF9D9D;
+  color: #fff;
  
 }
 
@@ -476,6 +479,8 @@ background-color: #f7f7f79d;
   padding: 5px;
   padding-left: 60px;
   padding-right: 60px;
+  min-width: 400px;
+  max-width: 400px;
 
 }
 
@@ -530,3 +535,12 @@ background-color: #f7f7f79d;
   background-color: #F25C5C;
 }
 
+
+/* footer */
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  font-size: 12px;
+}

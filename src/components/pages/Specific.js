@@ -106,7 +106,7 @@ const Specific = ({ onBookingSuccess }) => {
         if (response.ok) {
           toast.success('Booking successful!');
           setBookingSuccess(true);
-          onBookingSuccess(); // Invoke the callback on successful booking
+          onBookingSuccess(); 
           fetchBookingDates();
         } else {
           toast.error('Booking failed.');
@@ -275,11 +275,19 @@ const Specific = ({ onBookingSuccess }) => {
 
         <button
           onClick={handleBookClick}
-          disabled={!startDate || !endDate || guests < 1}
+          disabled={!startDate || !endDate || guests < 1 || !userLoggedIn}
           className="book-now-button"
         >
           Book Now
         </button>
+        
+        {bookingSuccess && (
+        <p className="success-message">Your booking has been successfully made!</p>
+      )}
+
+        {!userLoggedIn && (
+        <p className="error-message">Please log in to make a booking.</p>
+      )}
       </div>
 
           <div className='detailsContainer'>

@@ -55,46 +55,42 @@ function Home() {
   };
 
   return (
-    <div>
-      {user ? ( // Check if the user is authenticated
-        <>
-         <h3>Find your next adventure</h3>
-          <div className='search'>
-            <input
-              placeholder='Search for venues'
-              value={searchText}
-              onChange={handleInputChange}
-            />
-          </div>
-          
-          <div className='container'>
-            {/* Render Venue Cards for current page */}
-            {currentVenues.length > 0 ? (
-              currentVenues.map((venue) => (
-                <VenueCard key={venue.id} venue={venue} />
-              ))
-            ) : (
-              <div className='empty'>
-                {searchText.trim() !== '' ? <h2>No venues found</h2> : <h2>Loading...</h2>}
-              </div>
-            )}
-          </div>
-
-          {/* Pagination Controls */}
-          <div className="pagination">
-            {Array.from({ length: pageCount }, (_, index) => (
-              <button key={index} onClick={() => paginate(index + 1)}>
-                {index + 1}
-              </button>
-            ))}
-          </div>
-        </>
-      ) : (
-        // If user is not authenticated, render the Login component
-        <Login onLogin={handleLogin} />
-      )}
-    </div>
-  );
+      <div>
+        <h3>Find your next adventure</h3>
+        <div className='search'>
+          <input
+            placeholder='Search for venues'
+            value={searchText}
+            onChange={handleInputChange}
+          />
+        </div>
+        
+        <div className='container'>
+          {currentVenues.length > 0 ? (
+            currentVenues.map((venue) => (
+              <VenueCard key={venue.id} venue={venue} user={user} />
+            ))
+          ) : (
+            <div className='empty'>
+              {searchText.trim() !== '' ? <h2>No venues found</h2> : <h2>Loading...</h2>}
+            </div>
+          )}
+        </div>
+  
+        <div className="pagination">
+          {Array.from({ length: pageCount }, (_, index) => (
+            <button key={index} onClick={() => paginate(index + 1)}>
+              {index + 1}
+            </button>
+          ))}
+        </div>
+  
+        {!user && (
+          // Show login component only if user is not authenticated
+          <Login onLogin={handleLogin} />
+        )}
+      </div>
+    );
 }
 
 export default Home;

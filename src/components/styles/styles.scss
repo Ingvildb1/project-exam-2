@@ -29,7 +29,7 @@ input {
   outline: none;
 }
 
-/* Styles for the "Popular venues" heading */
+
 h3 {
   font-size: 16px;
   margin-top: 2rem;
@@ -74,7 +74,7 @@ h3 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; /* Center vertically in viewport */
+  min-height: 100vh; 
 }
 
 .mx-auto {
@@ -127,7 +127,7 @@ h3 {
 }
 
 .text-lg {
-  font-size: 12px; /* 18px */
+  font-size: 12px; 
   font-weight: 600;
   display: flex;
   justify-content: center;
@@ -145,10 +145,6 @@ h3 {
   color: #808080;
 }
 
-
-
-
-
 .object-cover {
   object-fit: cover;
 }
@@ -156,8 +152,6 @@ h3 {
 .rounded {
   border-radius: 0.25rem;
 }
-
-
 
 .form-group {
   margin-bottom: 1rem;
@@ -183,7 +177,7 @@ h3 {
 }
 
 .text-sm {
-  font-size: 12px; /* 14px */
+  font-size: 12px;
 }
 
 .mr-2 {
@@ -211,8 +205,6 @@ h3 {
 .rounded {
   border-radius: 0.25rem;
 }
-
-
 
 
 .create-venue {
@@ -284,6 +276,8 @@ h3 {
 /* Styles for "Upcoming Bookings" section */
 .mt-8 {
   margin-top: 2rem;
+  min-width: 600px;
+
 }
 
 .text-lg {
@@ -380,11 +374,6 @@ h3 {
   padding-bottom: 0.5rem;
 }
 
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 .rounded {
   border-radius: 0.25rem;
 }
@@ -396,9 +385,6 @@ h3 {
   padding: 2rem; 
 }
 
-.mt-8 {
-  margin-top: 2rem;
-}
 
 .bg-white {
   background-color: #fff;
@@ -410,10 +396,6 @@ h3 {
 
 
 /* Styles for the "Venues Created" section */
-.mt-8 {
-  margin-top: 2rem;
-}
-
 .text-lg {
   font-size: 12px; /* 18px */
   font-weight: 600;
