@@ -41,7 +41,7 @@ const Create = ({ token, onCreationSuccess }) => {
     return <p>Access denied. You must be a venue manager to create venues.</p>;
   }
 
-  const ParentComponent = () => {
+  /*const ParentComponent = () => {
     const userData = JSON.parse(localStorage.getItem('userData'));
   
     if (!userData || !userData.venueManager) {
@@ -50,7 +50,7 @@ const Create = ({ token, onCreationSuccess }) => {
     }
   
     return <Create token={userData.accessToken} />;
-  };
+  };*/
 
   const handleChange = (e) => {
     const { name, value } = e.target;

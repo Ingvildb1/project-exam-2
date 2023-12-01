@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Create from "../edit/create";
 import Update from "../edit/Update";
 import Bookings from '../edit/Bookings';
-import Specific from './Specific'; 
 import '../styles/styles.scss'
 import '../../App.css'
 
@@ -20,12 +18,12 @@ const Profile = () => {
   const [venues, setVenues] = useState([]); 
   const [editingVenueId, setEditingVenueId] = useState(null);
 
-  const onVenueCreationSuccess = () => {
+  /*const onVenueCreationSuccess = () => {
     const name = localStorage.getItem("name");
     if (name) {
       fetchVenuesByProfileName(name);
     }
-  };
+  };*/
 
     // Function to trigger re-fetch of bookings
     const handleNewBooking = () => {
@@ -43,7 +41,7 @@ const Profile = () => {
     } else {
       console.error("'name' is missing from localStorage.");
     }
-  }, [refreshBookings]);
+  }, [refreshBookings, fetchBookingsByProfileName, fetchVenuesByProfileName]);
 
   const token = localStorage.getItem('accessToken');
   
@@ -222,7 +220,7 @@ const Profile = () => {
     } else {
       console.error("User data is missing from localStorage.");
     }
-  }, []);
+  }, [fetchBookingsByProfileName, fetchVenuesByProfileName]);
 
   const updateLocalStorageUserData = (updatedUserData) => {
     localStorage.setItem('userData', JSON.stringify(updatedUserData));
@@ -248,7 +246,7 @@ const Profile = () => {
   const isLastPage = indexOfLastBooking >= bookings.length || bookings.length === 0;
 
 
-  const handleVenueClick = async (id, e) => {
+ /* const handleVenueClick = async (id, e) => {
     e.preventDefault();
     try {
       const response = await fetch(`https://api.noroff.dev/api/v1/holidaze/venues/${id}`);
@@ -268,7 +266,7 @@ const Profile = () => {
     } catch (error) {
       console.error("Error fetching venue data:", error);
     }
-  };
+  };*/
 
   const onVenueUpdated = () => {
     setEditingVenueId(null);
