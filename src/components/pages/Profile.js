@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Create from "../edit/create";
 import Update from "../edit/Update";
 import Bookings from '../edit/Bookings';
@@ -48,7 +48,7 @@ const Profile = () => {
   
 
   // Function to fetch venues associated with the profile
-  const fetchVenuesByProfileName = async (profileName) => {
+  const fetchVenuesByProfileName = useCallback(async (profileName) => {
     try {
       const accessToken = localStorage.getItem("accessToken");
 
@@ -75,7 +75,7 @@ const Profile = () => {
     } catch (error) {
       console.error("Error fetching venues by profile name:", error);
     }
-  };
+  }, []);
 
   useEffect(() => {
     const name = localStorage.getItem("name");
@@ -172,7 +172,7 @@ const Profile = () => {
     }
   };
 
-  const fetchBookingsByProfileName = async (profileName) => {
+  const fetchBookingsByProfileName = useCallback(async (profileName) => {
     try {
       const accessToken = localStorage.getItem("accessToken");
 
@@ -205,7 +205,7 @@ const Profile = () => {
     } catch (error) {
       console.error("Error fetching bookings by profile name:", error);
     }
-  };
+  }, []);
 
   
 
