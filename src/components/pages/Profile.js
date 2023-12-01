@@ -18,6 +18,8 @@ const Profile = () => {
   const [venues, setVenues] = useState([]); 
   const [editingVenueId, setEditingVenueId] = useState(null);
 
+  const token = localStorage.getItem('accessToken');
+
   /*const onVenueCreationSuccess = () => {
     const name = localStorage.getItem("name");
     if (name) {
