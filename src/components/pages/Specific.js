@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import './../../App.css';
 import DatePicker from 'react-datepicker';
@@ -25,7 +25,7 @@ const Specific = ({ onBookingSuccess }) => {
   };
   const userLoggedIn = Boolean(localStorage.getItem('accessToken'));
 
-  const fetchVenue = async () => {
+  const fetchVenue = useCallback(async () => {
     try {
       const response = await fetch(`https://api.noroff.dev/api/v1/holidaze/venues/${id}`);
       const data = await response.json();
@@ -33,7 +33,7 @@ const Specific = ({ onBookingSuccess }) => {
     } catch (error) {
       console.error('Error fetching venue:', error);
     }
-  };
+  }, [id]);
 
   const handleStartDateChange = (date) => {
     setStartDate(date);
