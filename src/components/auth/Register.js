@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://api.noroff.dev/api/v1/holidaze';
+/*const API_BASE_URL = 'https://api.noroff.dev/api/v1/holidaze';
 
 async function Register(url, data) {
   try {
@@ -28,4 +28,4 @@ const user = {
     "venueManager": false // Optional (default: false)
 };
 
-Register(`${API_BASE_URL}/auth/register`, user);
+Register(`${API_BASE_URL}/auth/register`, user);*/

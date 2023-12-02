@@ -488,6 +488,10 @@ background-color: #f7f7f79d;
   width: 800px;
 }
 
+.venueCreated img{
+  max-width: 200px;
+}
+
 
 /* Login*/
 

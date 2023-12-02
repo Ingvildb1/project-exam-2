@@ -385,7 +385,7 @@ const Profile = () => {
       <div className="max-w-[600px] mx-auto mt-8 p-4 bg-white rounded shadow-xl w-[90%]">
       <div className="mt-8">
         <h2 className="text-sm font-semibold mb-2">Venues Created</h2>
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center venueCreated">
           {venues.length > 0 ? (
             <ul className="list-disc list-inside">
               {venues.map((venue) => (
