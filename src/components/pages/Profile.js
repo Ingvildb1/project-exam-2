@@ -20,13 +20,6 @@ const Profile = () => {
 
   const token = localStorage.getItem('accessToken');
 
-  /*const handleVenueCreation = () => {
-    const name = localStorage.getItem("name");
-    if (name) {
-      fetchVenuesByProfileName(name);
-    }
-  };*/
-
     // Function to trigger re-fetch of bookings
     const handleNewBooking = () => {
       setRefreshBookings(true); 
@@ -148,6 +141,9 @@ const Profile = () => {
       const updatedUserInfo = await avatarResponse.json();
       setUserInfo(updatedUserInfo);
       updateLocalStorageUserData(updatedUserInfo);
+
+      // Show alert message
+    alert("Profile updated successfully! Refresh the page to see your updated profile :)");
   
     } catch (error) {
       console.error("Error updating profile:", error);
@@ -225,29 +221,6 @@ const Profile = () => {
   const isFirstPage = currentPage === 1;
   const isLastPage = indexOfLastBooking >= bookings.length || bookings.length === 0;
   
-
-
- /* const handleVenueClick = async (id, e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch(`https://api.noroff.dev/api/v1/holidaze/venues/${id}`);
-      if (response.ok) {
-        const venueData = await response.json();
-      
-        if (venueData.id) {
-          
-          const venueUrl = `/venues/${venueData.id}`;
-          window.location.href = venueUrl; // Redirect to the venue page
-        } else {
-          console.error("Venue ID not found.");
-        }
-      } else {
-        console.error("Failed to fetch venue data");
-      }
-    } catch (error) {
-      console.error("Error fetching venue data:", error);
-    }
-  };*/
 
   const onVenueUpdated = () => {
     setEditingVenueId(null);
