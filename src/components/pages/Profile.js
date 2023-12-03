@@ -20,7 +20,7 @@ const Profile = () => {
 
   const token = localStorage.getItem('accessToken');
 
-  /*const onVenueCreationSuccess = () => {
+  /*const handleVenueCreation = () => {
     const name = localStorage.getItem("name");
     if (name) {
       fetchVenuesByProfileName(name);
@@ -91,6 +91,7 @@ const Profile = () => {
       console.error("Error fetching venues by profile name:", error);
     }
   }, []);
+  
   
   const handleAvatarChange = (e) => {
     const imageUrl = e.target.value;
@@ -255,7 +256,6 @@ const Profile = () => {
       fetchVenuesByProfileName(userData.name);
     }
   };
-
   
 
   return (

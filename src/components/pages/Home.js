@@ -87,7 +87,11 @@ function Home() {
   
         {!user && (
           // Show login component only if user is not authenticated
+          <div>
+          <h3>Want to make a booking? Then you need to log in first!</h3>
           <Login onLogin={handleLogin} />
+          </div>
+          
         )}
       </div>
     );

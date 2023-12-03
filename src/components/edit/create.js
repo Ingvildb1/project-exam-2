@@ -123,20 +123,23 @@ const Create = ({ token, onCreationSuccess }) => {
         },
         body: JSON.stringify(venueDetails)
       });
-  
-      if (!response.ok) {
-        const errorResponse = await response.json(); // Parse the error response
+
+      if (response.ok) {
+        const newVenue = await response.json();
+        console.log('Venue created successfully:', newVenue);
+
+        // Call the onCreationSuccess function with the new venue data
+        if (onCreationSuccess) {
+          onCreationSuccess(newVenue);
+        }
+        // Show a success message
+        alert("Venue created successfully! Refresh the page to see your new venue :)");
+
+      } else {
+        const errorResponse = await response.json();
         console.error('Failed to create venue:', errorResponse);
         throw new Error('Failed to create venue');
       }
-  
-      const result = await response.json();
-      console.log('Venue created successfully:', result);
-
-      onCreationSuccess(); // Call the callback function after successful creation
-
-  
-      // Handle successful venue creation (e.g., redirecting to another page or clearing the form)
     } catch (error) {
       console.error('Error creating venue:', error);
     }
