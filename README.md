@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Project Exam 2
+Project Exam 2
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About this project
 
-## Available Scripts
+Second year front end studies at Noroff. 
+This is the repository for my second year exam project at Noroff. The goal for this project was to create a booking site for a fictional company called Holidaze. The site is built with Reactcand uses a school provided API to get and post data. 
 
-In the project directory, you can run:
+### Requirements for this project:
 
-### `npm start`
+For this project I was tasked with creating a responsive site for a fictional booking company called Holidaze. Some of the functionality required to fulfil these user stories were:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Display a list of venues(API results)
+Display a specific venue by id
+A calendar function to view available dates for a specific venue
+Log in and registration functionality for users with a @stud.noroff.no email address
+Displaying a users up coming bookings
+Allowing users to register as venue managers and add their own venues to the site
+Let venue managers edit and delete their venues
+Allowing venue managers to view bookings for their venues
+Allowing a registered user to update their avatar image
+A list of technical restrictions were also given for the project. These were:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Use an approved Javascript framework 
+Use an approved CSS framework 
+Host the site on an approved static host
+Use an approved design application 
+Use an approved planning application
 
-### `npm test`
+## How to run this repository:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+1. Clone the repo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+git clone https://github.com/Ingvildb1/project-exam-2.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+npm install
+```
 
-### `npm run eject`
+### Run the project
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```sh
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## **_Delivery links_**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+| Resource         | Url |
+|------------------|---------------|
+| Gantt Chart      | [Gantt Chart] (https://trello.com/b/DbJ65675/project-exam-2/timeline)|
+| Design prototype | [XD Prototype](https://xd.adobe.com/view/53cc540d-d9dc-4d8c-9996-8bf3103e6891-069f/) |
+| Style guide      | [XD Style Guide](https://xd.adobe.com/view/8dfd4b1d-0e5c-4e2f-9064-02f80a977519-d8ae/)|
+| Kanban board     | [Trello](https://trello.com/invite/b/DbJ65675/ATTIe90fcd6ef07c90553cb32e0ad2aa53e9858B73F2/project-exam-2) |
+| Repository       | [Github](https://github.com/Ingvildb1/project-exam-2) |
+| Hosted demo      | [Netlify](https://eloquent-kangaroo-fda7e2.netlify.app) |
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
