@@ -10,22 +10,22 @@ This is the repository for my second year exam project at Noroff. The goal for t
 
 For this project I was tasked with creating a responsive site for a fictional booking company called Holidaze. Some of the functionality required to fulfil these user stories were:
 
-Display a list of venues(API results)
-Display a specific venue by id
-A calendar function to view available dates for a specific venue
-Log in and registration functionality for users with a @stud.noroff.no email address
-Displaying a users up coming bookings
-Allowing users to register as venue managers and add their own venues to the site
-Let venue managers edit and delete their venues
-Allowing venue managers to view bookings for their venues
-Allowing a registered user to update their avatar image
-A list of technical restrictions were also given for the project. These were:
+- Display a list of venues(API results)
+- Display a specific venue by id
+- A calendar function to view available dates for a specific venue
+- Log in and registration functionality for users with a @stud.noroff.no email address
+- Displaying a users up coming bookings
+- Allowing users to register as venue managers and add their own venues to the site
+- Let venue managers edit and delete their venues
+- Allowing venue managers to view bookings for their venues
+- Allowing a registered user to update their avatar image
+- A list of technical restrictions were also given for the project. These were:
 
 Use an approved Javascript framework 
-Use an approved CSS framework 
-Host the site on an approved static host
-Use an approved design application 
-Use an approved planning application
+- Use an approved CSS framework 
+- Host the site on an approved static host
+- Use an approved design application 
+- Use an approved planning application
 
 ## How to run this repository:
 
