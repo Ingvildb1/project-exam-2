@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const RegisterForm = () => {
   const [name, setName] = useState('');
@@ -177,10 +178,10 @@ const RegisterForm = () => {
             <div className="text-red-500 mt-4 text-center">{registrationError}</div>
           )}
           <div className="text-gray-900 mt-4 text-center">
-            Already have an account?{" "}
-            <a href="/login" className="text-indigo-500 hover:text-indigo-600">
-              Login here
-            </a>
+            
+            <p>Already have an account? <Link to="/login">Login here</Link></p> 
+              
+            
           </div>
         </form>
       </div>
