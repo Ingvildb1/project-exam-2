@@ -21,11 +21,11 @@ Allowing venue managers to view bookings for their venues
 Allowing a registered user to update their avatar image
 A list of technical restrictions were also given for the project. These were:
 
-Use an approved Javascript framework (React)
-Use an approved CSS framework (Styled components)
-Host the site on an approved static host (Netlify)
-Use an approved design application (Adobe XD)
-Use an approved planning application (Trello)
+Use an approved Javascript framework 
+Use an approved CSS framework 
+Host the site on an approved static host
+Use an approved design application 
+Use an approved planning application
 
 ## How to run this repository:
 
@@ -54,10 +54,10 @@ npm start
 
 | Resource         | Url |
 |------------------|---------------|
-| Gantt Chart      | [[Gantt Chart] (https://trello.com/b/DbJ65675/project-exam-2/timeline)|
+| Gantt Chart      | [Gantt Chart] (https://trello.com/b/DbJ65675/project-exam-2/timeline)|
 | Design prototype | [XD Prototype](https://xd.adobe.com/view/53cc540d-d9dc-4d8c-9996-8bf3103e6891-069f/) |
 | Style guide      | [XD Style Guide](https://xd.adobe.com/view/8dfd4b1d-0e5c-4e2f-9064-02f80a977519-d8ae/)|
 | Kanban board     | [Trello](https://trello.com/invite/b/DbJ65675/ATTIe90fcd6ef07c90553cb32e0ad2aa53e9858B73F2/project-exam-2) |
 | Repository       | [Github](https://github.com/Ingvildb1/project-exam-2) |
-| Hosted demo      | [Github Pages](https://eloquent-kangaroo-fda7e2.netlify.app) |
+| Hosted demo      | [Netlify](https://eloquent-kangaroo-fda7e2.netlify.app) |
 
