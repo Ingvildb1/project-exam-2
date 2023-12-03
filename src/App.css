@@ -558,3 +558,23 @@ footer {
   margin-top: 100px;
   font-size: 12px;
 }
+
+
+@media (max-width: 540px){
+  .loginform {
+    width: 400px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .register-container {
+    width: 400px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+.upcoming-bookings, .venues-created {
+  max-width: 400px;
+}
+
+}

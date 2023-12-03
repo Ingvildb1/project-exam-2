@@ -233,7 +233,7 @@ const Profile = () => {
 
   return (
     <div className="my-24 profile-container">
-      <div className="mx-auto mt-8 p-4 bg-white rounded shadow-xl w-[90%] max-w-[600px]">
+      <div className=" mt-8 p-4 bg-white rounded shadow-xl w-[90%] max-w-[600px] profile-box">
         <h1 className="text-2xl primary-color font-bold mb-4">My Profile</h1>
         <div className="grid sm:flex sm:justify-between sm:items-center">
           <div className="topcontainer-profile">
@@ -291,7 +291,7 @@ const Profile = () => {
         </form>
        
       </div>
-      <div className="max-w-[900px] mx-auto mt-8 p-4 bg-white rounded shadow-xl w-[90%]">
+      <div className="max-w-[900px] mt-8 p-4 bg-white rounded shadow-xl w-[90%] upcoming-bookings">
         <div className="mt-8">
           <h2 className="text-lg font-semibold mb-2">Upcoming Bookings</h2>
           <div className="flex justify-center items-center">
@@ -355,8 +355,8 @@ const Profile = () => {
            <Create token={localStorage.getItem("accessToken")} onBookingCreated={handleNewBooking} />
         </div>
       </div>
-      <div className="max-w-[600px] mx-auto mt-8 p-4 bg-white rounded shadow-xl w-[90%]">
-      <div className="mt-8">
+      <div className="max-w-[600px] mt-8 p-4 bg-white rounded shadow-xl w-[90%]">
+      <div className="mt-8 venues-created">
         <h2 className="text-sm font-semibold mb-2">Venues Created</h2>
         <div className="flex justify-center items-center venueCreated">
           {venues.length > 0 ? (
