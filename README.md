@@ -1,5 +1,5 @@
 # Project Exam 2
-Project Exame 2
+Project Exam 2
 
 ## About this project
 
