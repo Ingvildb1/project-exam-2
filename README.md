@@ -54,7 +54,7 @@ npm start
 
 | Resource         | Url |
 |------------------|---------------|
-| Gantt Chart      | [[Gantt Chart](https://github.com/Ingvildb1/semester-project-2/blob/main/img/Gantt%20Chart.jpg](https://trello.com/b/DbJ65675/project-exam-2/timeline)) |
+| Gantt Chart      | [[Gantt Chart] (https://trello.com/b/DbJ65675/project-exam-2/timeline)|
 | Design prototype | [XD Prototype](https://xd.adobe.com/view/53cc540d-d9dc-4d8c-9996-8bf3103e6891-069f/) |
 | Style guide      | [XD Style Guide](https://xd.adobe.com/view/8dfd4b1d-0e5c-4e2f-9064-02f80a977519-d8ae/)|
 | Kanban board     | [Trello](https://trello.com/invite/b/DbJ65675/ATTIe90fcd6ef07c90553cb32e0ad2aa53e9858B73F2/project-exam-2) |
