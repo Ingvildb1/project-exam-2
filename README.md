@@ -27,9 +27,14 @@ Use an approved Javascript framework
 - Use an approved design application 
 - Use an approved planning application
 
-## How to run this repository:
+  ### Technologies used:
 
-## Installation
+- React
+- HTML
+- SCSS
+
+
+## How to run this repository:
 
 1. Clone the repo
 
