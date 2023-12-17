@@ -1,6 +1,8 @@
 # Project Exam 2
 Project Exam 2
 
+![image](public/project-exam-2-img1.png)
+
 ## About this project
 
 Second year front end studies at Noroff. 
